@@ -1,0 +1,86 @@
+<div *ngIf=user>
+  <div class="card text-white bg-dark mb-3">
+    <div class="card-header">{{user.name}}</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4" >
+          <img class="avatar img-thumbnail" src="{{user.avatar_url}}">
+
+        </div>
+        <div class="col-md-8">
+           <div class="stats">
+             <span class="badge badge-pill badge-primary">{{user.public_repos}}Public Repos</span>
+             <span class="badge badge-pill badge-success">{{user.public_gists}}Public Gists</span>
+             <span class="badge badge-pill badge-info">{{user.followers}}Followers</span>
+             <span class="badge badge-pill badge-warning">{{user.following}}Following</span>
+           </div>
+           <ul class="list-group" style="color:black;">
+             <li class="list-group-item"><strong>Username: </strong>{{user.login}}</li>
+             <li class="list-group-item"><strong>Email: </strong>{{user.email}}</li>
+             <li class="list-group-item"><strong>Location: </strong>{{user.location}}</li>
+             <li class="list-group-item"><strong>Blog: </strong>{{user.blog}}</li>
+             <li class="list-group-item"><strong>Member Since: </strong>{{user.created_at}}</li>
+
+           </ul>
+        </div>
+      </div>
+    </div>
+    <form>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Repo Name</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name" [(ngModel)]="name" name="name">
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Repo Description</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Description" [(ngModel)]="description" name="description">
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Repo Home Page</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="HomePage" [(ngModel)]="homepage" name="homepage">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)=createRepo()>Create Repo</button>
+      </form>
+      <div *ngIf=gists>
+        <h1>List of Gists</h1>
+        <div *ngFor="let item of gists">
+            <div class="row">
+              <div class="col-md-9">
+                <h4><a href="{{item.html_url}}" target="_blank" >{{item.name}}</a></h4>
+                <p>{{item.description}}</p>
+              </div>
+              <div class="col-md-3">
+                  <span class="badge badge-pill badge-primary">{{item.watchers}} Watchers</span>
+                  <span class="badge badge-pill badge-success">{{user.forks}} Forks</span>
+    
+              </div>
+            </div>
+      </div>
+      <div *ngIf=repos>
+        <h1>List of Repos</h1>
+        <div *ngFor="let repo of repos">
+            <div class="row">
+              <div class="col-md-9">
+                <h4><a href="{{repo.html_url}}" target="_blank" >{{repo.name}}</a></h4>
+                <p>{{repo.description}}</p>
+              </div>
+              <div class="col-md-3">
+                  <span class="badge badge-pill badge-primary">{{repo.watchers}} Watchers</span>
+                  <span class="badge badge-pill badge-success">{{user.forks}} Forks</span>
+              </div>
+            </div>
+      </div>
+      <div *ngIf=followers>
+          <h1>List of Repos</h1>
+          <div *ngFor="let follower of followers">
+              <div class="row">
+                <div class="col-md-9">
+                  <h4><a href="{{follower.html_url}}" target="_blank" >{{follower.login}}</a></h4>
+                  <p>{{follower.description}}</p>
+                </div>
+                <div class="col-md-3">
+                    <span class="badge badge-pill badge-primary">{{follower.watchers}} Watchers</span>
+                    <span class="badge badge-pill badge-success">{{user.forks}} Forks</span>
+                </div>
+              </div>
+        </div>
+  </div>
