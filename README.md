@@ -1,27 +1,15 @@
-# Git
+This is Git api client app developed using Angular 6 and using a github library called 'github-api' from Github.js
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
+Components:
+Login - to authenticate and authorize a user to access his/her profile information and to edit their profile
+Userview- used to display searched user information and their repos
+profile- to display authenticated user information
 
-## Development server
+Service: 
+Github.Service.ts - to make call and to authenticate user in this application
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+in Login component-There is a login form and it get value from the user and chek whether its correct or not using github Library once checked it allows user to profile view otherwise it throws error
 
-## Code scaffolding
+in Profile component- There is template to show information of the user and there is a form to create repos and we can view user's gists and followers
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+in userview component- there is a search bar to search for users and it displays all information about the user without being looged in
